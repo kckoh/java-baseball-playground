@@ -22,7 +22,6 @@ public class BaseballTest {
 
     @Test
     void getRandomTest(){
-        baseball.genRandom();
         assertThat(baseball.getTarget()).isEqualTo("123");
     }
 
@@ -39,6 +38,15 @@ public class BaseballTest {
         assertThat(baseball.strike("143")).isEqualTo(2);
         assertThat(baseball.strike("135")).isEqualTo(1);
         assertThat(baseball.strike("321")).isEqualTo(0);
+    }
+
+    @Test
+    void ballTest(){
+        baseball.setTarget("123");
+        assertThat(baseball.ball("231")).isEqualTo(3);
+        assertThat(baseball.ball("235")).isEqualTo(2);
+        assertThat(baseball.ball("451")).isEqualTo(1);
+        assertThat(baseball.ball("456")).isEqualTo(0);
     }
 
 
