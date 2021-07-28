@@ -45,21 +45,24 @@ public class Baseball {
         int result = 0;
         int len = guessNum.length();
         for (int i = 0; i < len; i++) {
-            for (int j = 0; j <len ; j++) {
-                if(i == j){
-                    continue;
-                }
-                else if (guessNum.charAt(j) == target.charAt(i) ){
-                    result++;
-                }
-            }
+            result += ballCheck(guessNum,i);
         }
         return result;
 
     }
 
-    public int ballCheck(String guessNum){
-        return 0;
+    public int ballCheck(String guessNum, int i){
+        int len= guessNum.length();
+        int result = 0;
+        for (int j = 0; j <len ; j++) {
+            if(i == j){
+                continue;
+            }
+            else if (guessNum.charAt(j) == target.charAt(i) ){
+                result++;
+            }
+        }
+        return result;
     }
 
     public void guess(String guessNum){
