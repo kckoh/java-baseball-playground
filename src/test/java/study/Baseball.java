@@ -55,20 +55,22 @@ public class Baseball {
         int len= guessNum.length();
         int result = 0;
         for (int j = 0; j <len ; j++) {
-            if(i == j){
-                continue;
-            }
-            else if (guessNum.charAt(j) == target.charAt(i) ){
-                result++;
-            }
+            result += ballCheckHelper(i,j,guessNum);
         }
         return result;
+    }
+    public int ballCheckHelper(int i, int j, String guessNum){
+        if(i == j){
+            return 0;
+        }
+        if (guessNum.charAt(j) == target.charAt(i) ){
+            return 1;
+        }
+        return 0;
     }
 
     public void guess(String guessNum){
         int strike, ball = 0;
-
-
     }
 
     public String result(){
